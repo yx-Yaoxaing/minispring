@@ -6,13 +6,14 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 import org.mini.spring.BeanDefinition;
 import org.mini.spring.BeanFactory;
+import org.mini.spring.core.DefaultSingletonBeanRegistry;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class ClassPathXmlApplicationContext implements BeanFactory {
+public class ClassPathXmlApplicationContext extends DefaultSingletonBeanRegistry implements BeanFactory {
 
     private static final int DEFAULT_BEANDEFINITIONS_SIZE = 256;
 
@@ -96,6 +97,16 @@ public class ClassPathXmlApplicationContext implements BeanFactory {
      */
     @Override
     public void registerBeanDefinition(BeanDefinition beanDefinition) {
+
+    }
+
+    @Override
+    public Boolean containsBean(String name) {
+        return null;
+    }
+
+    @Override
+    public void registerBean(String beanName, Object obj) {
 
     }
 }

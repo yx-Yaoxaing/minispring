@@ -5,10 +5,7 @@ import org.mini.spring.BeanDefinition;
 import org.mini.spring.BeanFactory;
 import org.mini.spring.BeansException;
 import org.mini.spring.ResourceException;
-import org.mini.spring.core.ClassPathXmlResource;
-import org.mini.spring.core.Resource;
-import org.mini.spring.core.SimpleBeanFactory;
-import org.mini.spring.core.XmlBeanDefinitionReader;
+import org.mini.spring.core.*;
 
 public class ClassPathXmlApplicationContext implements BeanFactory {
 
@@ -35,5 +32,15 @@ public class ClassPathXmlApplicationContext implements BeanFactory {
     @Override
     public void registerBeanDefinition(BeanDefinition beanDefinition) {
         this.beanFactory.registerBeanDefinition(beanDefinition);
+    }
+
+    @Override
+    public Boolean containsBean(String name) {
+        return null;
+    }
+
+    @Override
+    public void registerBean(String beanName, Object obj) {
+
     }
 }
