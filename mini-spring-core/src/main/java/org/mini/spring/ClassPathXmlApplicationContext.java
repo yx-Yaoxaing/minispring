@@ -4,13 +4,15 @@ package org.mini.spring;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
+import org.mini.spring.BeanDefinition;
+import org.mini.spring.BeanFactory;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class ClassPathXmlApplicationContext implements BeanFactory{
+public class ClassPathXmlApplicationContext implements BeanFactory {
 
     private static final int DEFAULT_BEANDEFINITIONS_SIZE = 256;
 
@@ -65,7 +67,7 @@ public class ClassPathXmlApplicationContext implements BeanFactory{
             try {
                 Class<?> aClass = Class.forName(className);
                 Object res = aClass.newInstance();
-                singletonsNameMap.put(id,className);
+                singletonsNameMap.put(id,res);
                 singletonsClassMap.put(aClass,res);
             } catch (InstantiationException e) {
                 throw new RuntimeException(e);
@@ -86,5 +88,14 @@ public class ClassPathXmlApplicationContext implements BeanFactory{
     @Override
     public Object getBean(Class<?> classz) {
         return singletonsClassMap.get(classz);
+    }
+
+    /**
+     * 注册bean定于信息
+     * @param beanDefinition
+     */
+    @Override
+    public void registerBeanDefinition(BeanDefinition beanDefinition) {
+
     }
 }
