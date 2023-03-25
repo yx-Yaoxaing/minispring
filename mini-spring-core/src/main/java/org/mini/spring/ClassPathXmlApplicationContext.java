@@ -109,4 +109,14 @@ public class ClassPathXmlApplicationContext extends DefaultSingletonBeanRegistry
     public void registerBean(String beanName, Object obj) {
 
     }
+
+    @Override
+    public boolean isSingleton(String beanName) {
+        return false;
+    }
+
+    @Override
+    public boolean isPrototype(String beanName) {
+        return false;
+    }
 }

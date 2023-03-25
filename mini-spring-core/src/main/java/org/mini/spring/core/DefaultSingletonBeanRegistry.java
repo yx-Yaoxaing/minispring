@@ -1,7 +1,6 @@
 package org.mini.spring.core;
 
 import org.mini.spring.SingletonBeanRegistry;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -23,6 +22,10 @@ public class DefaultSingletonBeanRegistry implements SingletonBeanRegistry {
             singletons.put(beanName,singletonObject);
             beanNames.add(beanName);
         }
+    }
+
+    protected void removeSingleton(String beanName){
+        singletons.remove(beanName);
     }
 
     @Override

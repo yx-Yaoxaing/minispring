@@ -3,7 +3,7 @@ package org.mini.spring.context;
 
 import org.mini.spring.BeanDefinition;
 import org.mini.spring.BeanFactory;
-import org.mini.spring.BeansException;
+import org.mini.spring.exception.BeansException;
 import org.mini.spring.ResourceException;
 import org.mini.spring.core.*;
 
@@ -36,11 +36,21 @@ public class ClassPathXmlApplicationContext implements BeanFactory {
 
     @Override
     public Boolean containsBean(String name) {
-        return null;
+        return beanFactory.containsBean(name);
     }
 
     @Override
     public void registerBean(String beanName, Object obj) {
+        beanFactory.registerBean(beanName, obj);
+    }
 
+    @Override
+    public boolean isSingleton(String beanName) {
+        return false;
+    }
+
+    @Override
+    public boolean isPrototype(String beanName) {
+        return false;
     }
 }

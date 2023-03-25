@@ -1,6 +1,8 @@
 package org.mini.spring;
 
 
+import org.mini.spring.exception.BeansException;
+
 public interface BeanFactory {
 
     Object getBean(String name) throws BeansException;
@@ -27,5 +29,9 @@ public interface BeanFactory {
      */
     void registerBean(String beanName,Object obj);
 
+
+    boolean isSingleton(String beanName);
+
+    boolean isPrototype(String beanName);
 
 }

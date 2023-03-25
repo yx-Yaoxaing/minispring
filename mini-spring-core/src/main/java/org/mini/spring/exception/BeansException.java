@@ -1,4 +1,4 @@
-package org.mini.spring;
+package org.mini.spring.exception;
 
 
 public class BeansException extends Exception {

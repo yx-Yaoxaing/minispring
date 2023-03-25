@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--setters 注入-->
+<beans>
+<bean id="item" class="org.mini.spring.bean.ItemService">
+    <constructor-arg type="String" name="name" value="abc"/>
+    <property type="String" name="address" value="HUWWEI P50" />
+</bean>
+</beans>

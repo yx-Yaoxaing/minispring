@@ -1,6 +1,9 @@
 package org.mini.spring;
 
 
+import lombok.Data;
+
+@Data
 public class BeanDefinition {
 
     String SCOPE_SINGLETON = "singleton";
@@ -20,9 +23,9 @@ public class BeanDefinition {
 
     private ArgumentValues argumentValues;
 
+    private PropertyValues propertyValues;
+
     private boolean lazyInit = false;
-
-
 
     public BeanDefinition(String id, String className) {
         this.id = id;
@@ -32,19 +35,20 @@ public class BeanDefinition {
     public BeanDefinition() {
     }
 
-    public String getId() {
-        return id;
+    public boolean isSingleton() {
+        return scope == SCOPE_SINGLETON;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public boolean isPrototype() {
+        return scope == SCOPE_PROTOTYPE;
     }
 
-    public String getClassName() {
-        return className;
+    public void setConstructorArgumentValues(ArgumentValues argumentValues){
+        this.argumentValues = argumentValues;
     }
 
-    public void setClassName(String className) {
-        this.className = className;
+    public void setPropertyValues(PropertyValues propertyValues){
+        this.propertyValues = propertyValues;
     }
+
 }
