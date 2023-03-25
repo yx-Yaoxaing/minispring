@@ -46,6 +46,13 @@ public class SimpleBeanFactory extends DefaultSingletonBeanRegistry implements B
         return singleObject;
     }
 
+    public void refresh() throws BeansException {
+        for (String beanName : beanNames) {
+            getBean(beanName);
+        }
+    }
+
+
 
     private Object createBean(BeanDefinition beanDefinition) {
         Class<?> clz = null;
